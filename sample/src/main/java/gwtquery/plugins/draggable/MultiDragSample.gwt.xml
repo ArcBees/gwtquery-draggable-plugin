@@ -1,0 +1,5 @@
+<module rename-to='MultiDragSample'>
+    <inherits name='gwtquery.plugins.draggable.Draggable'/>
+    <entry-point class='gwtquery.plugins.draggable.client.MultiDragSample'/>
+</module>
+    

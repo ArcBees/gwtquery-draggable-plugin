@@ -1,0 +1,95 @@
+<!doctype html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>GwtQuery: Stack sample</title>
+<style type="text/css">
+body {
+	color: black;
+	font-family: Arial Unicode MS, Arial, sans-serif;
+	font-size: small;
+}
+
+.ui-widget-content {
+	width: 200px;
+	height: 200px;
+	padding: 0.5em;
+	border: black solid 1px;
+	background: #f6f6f6;
+	padding: 0 10px 10px 0;
+	float: left;
+	display: inline;
+}
+
+.demo {
+	width: 700px;
+	margin-right: auto;
+	margin-left: auto;
+	padding: 10px;
+	border: black solid 1px;
+}
+
+#setOfDraggable {
+	clear: both;
+	float: left;
+	width: 368px;
+	height: 120px;
+}
+</style>
+<script language="javascript" src="StackSample.nocache.js"></script>
+</head>
+
+<body>
+
+
+<div class="demo">
+
+
+<h1>GWTQuery : Stack sample</h1>
+
+<ul style="padding: 10px 0px; list-style: none; display: block">
+	<li style="float: left;"><a
+		href="../DraggableSample1/DraggableSample1.html">To start</a>&nbsp;|&nbsp;
+	</li>
+	<li style="float: left;"><a
+		href="../DraggableSample2/DraggableSample2.html">Test the options</a>&nbsp;|&nbsp;
+	</li>
+	<li style="float: left;"><a href="../SnapSample/SnapSample.html">Snap
+	sample</a>&nbsp;|&nbsp;</li>
+	<li style="float: left;"><a
+		href="../ContainmentSample/Containment.html">Containment sample</a>&nbsp;|&nbsp;
+	</li>
+	<li style="float: left;"><a href="../StackSample/StackSample.html">Stack
+	sample</a>&nbsp;|&nbsp;</li>
+	<li style="float: left;"><a
+		href="../GWTIntegrationSample/GWTIntegrationSample.html">Integration
+	with GWT</a></li>
+</ul>
+
+
+<p>To clarify which draggable is in play, bring the draggable in
+motion to front. Use the zIndex option to set a higher z-index for the
+helper, if in play, or use the stack option to ensure that the last item
+dragged will appear on top of others in the same group on drag stop.</p>
+
+<div style="height: 800px; border: 1px solid black; position: relative;">
+
+<div class="ui-widget-content">
+<p>We are draggables..</p>
+</div>
+
+<div class="ui-widget-content">
+<p>..whose z-indexes are controlled automatically..</p>
+</div>
+
+<div class="ui-widget-content">
+<p>..with the stack option.</p>
+</div>
+</div>
+
+<br />
+<a
+	href="http://code.google.com/p/gwtquery-plugins/source/browse/trunk/draggable/sample/src/main/java/gwtquery/plugins/draggable/client/StackSample.java"
+	target="_blank">Java source code</a></div>
+</body>
+</html>

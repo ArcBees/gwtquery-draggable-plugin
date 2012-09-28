@@ -1,0 +1,5 @@
+<module rename-to='SnapSample'>
+    <inherits name='gwtquery.plugins.draggable.Draggable'/>
+    <entry-point class='gwtquery.plugins.draggable.client.SnapSample'/>
+</module>
+    

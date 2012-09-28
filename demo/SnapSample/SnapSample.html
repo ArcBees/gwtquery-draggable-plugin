@@ -1,0 +1,118 @@
+<!doctype html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>GwtQuery Draggable plugin example : snap options</title>
+<style type="text/css">
+body {
+	color: black;
+	font-family: Arial Unicode MS, Arial, sans-serif;
+	font-size: small;
+}
+
+.ui-widget-content {
+	width: 150px;
+	height: 150px;
+	padding: 0.5em;
+	border: black solid 1px;
+	background: #f6f6f6;
+	margin: 0 10px 10px 0;
+	float: left;
+}
+
+.demo {
+	width: 700px;
+	margin-right: auto;
+	margin-left: auto;
+	padding: 10px;
+	border: black solid 1px;
+}
+
+#SnapTarget {
+	background-color: #CCCCCC;
+	border: 1px solid #AAAAAA;
+	color: #222222;
+	font-weight: bold;
+	height: 250px;
+	margin-left: 50px;
+	padding: 20px;
+	width: 500px;
+}
+</style>
+<script language="javascript" src="SnapSample.nocache.js"></script>
+</head>
+
+<body>
+
+
+<div class="demo">
+
+
+<h1>GwtQuery Draggable plugin example : snap options</h1>
+
+<ul style="padding: 10px 0px; list-style: none; display: block">
+	<li style="float: left;"><a
+		href="../DraggableSample1/DraggableSample1.html">To start</a>&nbsp;|&nbsp;
+	</li>
+	<li style="float: left;"><a
+		href="../DraggableSample2/DraggableSample2.html">Test the options</a>&nbsp;|&nbsp;
+	</li>
+	<li style="float: left;"><a href="../SnapSample/SnapSample.html">Snap
+	sample</a>&nbsp;|&nbsp;</li>
+	<li style="float: left;"><a
+		href="../ContainmentSample/Containment.html">Containment sample</a>&nbsp;|&nbsp;
+	</li>
+	<li style="float: left;"><a href="../StackSample/StackSample.html">Stack
+	sample</a>&nbsp;|&nbsp;</li>
+	<li style="float: left;"><a
+		href="../GWTIntegrationSample/GWTIntegrationSample.html">Integration
+	with GWT</a></li>
+</ul>
+
+
+<p>Snap the draggable to the inner or outer boundaries of a DOM
+element. Use the snap, snapMode (inner, outer, both), and snapTolerance
+(distance in pixels the draggable must be from the element when snapping
+is invoked) options.</p>
+
+<div
+	style="height: 800px; border: 1px solid black; overflow: auto; position: relative; padding: 15px;">
+
+<div id="SnapTarget" class="ui-widget-header">
+<p>I'm a snap target</p>
+</div>
+
+<br clear="both" />
+
+
+<div id="draggable" class="draggable ui-widget-content">
+<p>Default (snap=true), snaps to all other draggable elements</p>
+</div>
+
+<div id="draggable2" class="draggable ui-widget-content">
+<p>I only snap to the big box</p>
+</div>
+
+<div id="draggable3" class="draggable ui-widget-content">
+<p>I only snap to the outer edges of the big box</p>
+</div>
+
+<div id="draggable4" class="draggable ui-widget-content">
+<p>I only snap to the big box. My snap tolerance is 100px</p>
+</div>
+
+<div id="draggable5" class="draggable ui-widget-content">
+<p>I only snap to the inner edges of the big box with a Snap
+tolerance : 50px</p>
+</div>
+
+
+</div>
+
+
+<br />
+<a
+	href="http://code.google.com/p/gwtquery-plugins/source/browse/trunk/draggable/sample/src/main/java/gwtquery/plugins/draggable/client/SnapSample.java"
+	target="_blank">Java source code</a></div>
+</body>
+</html>

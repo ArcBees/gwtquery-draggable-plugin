@@ -1,0 +1,93 @@
+<!doctype html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>GwtQuery Draggable plugin example : containment option</title>
+<style type="text/css">
+body {
+	color: black;
+	font-family: Arial Unicode MS, Arial, sans-serif;
+	font-size: small;
+}
+
+.ui-widget-content {
+	width: 150px;
+	height: 150px;
+	padding: 0.5em;
+	border: black solid 1px;
+	background: #f6f6f6;
+	margin: 0 10px 10px 0px;
+	float: left;
+}
+
+.demo {
+	width: 700px;
+	margin-right: auto;
+	margin-left: auto;
+	padding: 10px;
+	border: black solid 1px;
+}
+</style>
+<script language="javascript" src="ContainmentSample.nocache.js"></script>
+</head>
+
+<body>
+
+
+<div class="demo">
+
+
+<h1>GwtQuery Draggable plugin example : containment option</h1>
+
+<ul style="padding: 10px 0px; list-style: none; display: block">
+	<li style="float: left;"><a
+		href="../DraggableSample1/DraggableSample1.html">To start</a>&nbsp;|&nbsp;
+	</li>
+	<li style="float: left;"><a
+		href="../DraggableSample2/DraggableSample2.html">Test the options</a>&nbsp;|&nbsp;
+	</li>
+	<li style="float: left;"><a href="../SnapSample/SnapSample.html">Snap
+	sample</a>&nbsp;|&nbsp;</li>
+	<li style="float: left;"><a
+		href="../ContainmentSample/Containment.html">Containment sample</a>&nbsp;|&nbsp;
+	</li>
+	<li style="float: left;"><a href="../StackSample/StackSample.html">Stack
+	sample</a>&nbsp;|&nbsp;</li>
+	<li style="float: left;"><a
+		href="../GWTIntegrationSample/GWTIntegrationSample.html">Integration
+	with GWT</a></li>
+</ul>
+
+
+<p>Constrain the movement of each draggable by defining the
+boundaries of the draggable area. Use the containment option to specify
+a parent DOM element or a jQuery selector, like 'document.'</p>
+
+<div id="parentBox" style="height: 600px; border: 1px solid black;">
+
+<div id="box"
+	style="border: 3px solid black; width: 600px; height: 300px; position: relative; margin: 20px;">
+<div id="draggable" class="draggable ui-widget-content">
+<p>I'm contained within the box</p>
+</div>
+
+<div id="draggable2" class="draggable ui-widget-content">
+<p>I'm contained within the box's parent</p>
+</div>
+
+<div id="draggable3" class="draggable ui-widget-content">
+<p
+	style="color: blank; background-color: #F6A828; border: 1px solid #E78F08;">I'm
+contained within my parent</p>
+</div>
+
+</div>
+</div>
+
+
+<br />
+<a
+	href="http://code.google.com/p/gwtquery-plugins/source/browse/trunk/draggable/sample/src/main/java/gwtquery/plugins/draggable/client/ContainmentSample.java"
+	target="_blank">Java source code</a></div>
+</body>
+</html>

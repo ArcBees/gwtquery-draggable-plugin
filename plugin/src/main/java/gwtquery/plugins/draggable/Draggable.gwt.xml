@@ -1,0 +1,31 @@
+<module>
+    <inherits name='com.google.gwt.query.Query'/>
+    
+    <replace-with
+		class="gwtquery.plugins.draggable.client.impl.DraggableHandlerImplIE8">
+		<when-type-is
+			class="gwtquery.plugins.draggable.client.impl.DraggableHandlerImpl" />
+		<any>
+			<when-property-is name="user.agent" value="ie8" />
+		</any>
+	</replace-with>
+	
+	<replace-with
+		class="gwtquery.plugins.draggable.client.impl.DraggableHandlerImplIE6">
+		<when-type-is
+			class="gwtquery.plugins.draggable.client.impl.DraggableHandlerImpl" />
+		<any>
+			<when-property-is name="user.agent" value="ie6" />			
+		</any>
+	</replace-with>
+	
+	<replace-with
+		class="gwtquery.plugins.draggable.client.impl.DraggableHandlerImplOpera">
+		<when-type-is
+			class="gwtquery.plugins.draggable.client.impl.DraggableHandlerImpl" />
+		<any>
+			<when-property-is name="user.agent" value="opera" />			
+		</any>
+	</replace-with>	
+</module>
+    

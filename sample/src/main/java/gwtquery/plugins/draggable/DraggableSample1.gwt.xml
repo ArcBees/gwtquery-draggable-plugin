@@ -1,0 +1,5 @@
+<module rename-to='DraggableSample1'>
+    <inherits name='gwtquery.plugins.draggable.Draggable'/>
+    <entry-point class='gwtquery.plugins.draggable.client.DraggableSample1'/>
+</module>
+    

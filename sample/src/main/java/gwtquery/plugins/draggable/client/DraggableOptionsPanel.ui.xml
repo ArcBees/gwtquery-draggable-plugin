@@ -1,0 +1,77 @@
+<!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
+	xmlns:g="urn:import:com.google.gwt.user.client.ui">
+
+	<g:DecoratorPanel>
+	<g:HTMLPanel>
+		<table cellpadding="2" style="margin:5px;">
+			<tbody>
+				<tr style="vertical-align:top;">
+					<td><g:HTML text="Drag disabled" /></td>
+					<td><g:CheckBox ui:field="disabledCheckBox" /></td>
+				</tr>
+				<tr style="vertical-align:top;">
+					<td><g:HTML text="Helper type" /></td>
+					<td><g:ListBox ui:field="helperListBox" /></td>
+				</tr>
+				<tr style="vertical-align:top;">
+					<td><g:HTML text="Helper opacity" /></td>
+					<td><g:TextBox ui:field="opacityBox" /></td>
+				</tr>
+				<tr style="vertical-align:top;">
+					<td><g:HTML text="Helper handle enabled" /></td>
+					<td><g:CheckBox ui:field="handleCheckBox" /></td>
+				</tr>
+				<tr style="vertical-align:top;">
+					<td><g:HTML text="Cursor during drag" /></td>
+					<td><g:ListBox ui:field="cursorListBox" /></td>
+				</tr>
+				<tr style="vertical-align:top;">
+					<td><g:HTML text="Cursor position during drag" /></td>
+					<td><g:ListBox ui:field="cursorAtListBox" /></td>
+				</tr>
+				<tr style="vertical-align:top;">
+					<td><g:HTML text="Axis constraint" /></td>
+					<td><g:ListBox ui:field="axisListBox" /></td>
+				</tr>
+				<tr style="vertical-align:top;">
+					<td><g:HTML text="Containement constraint" /></td>
+					<td><g:ListBox ui:field="containmentListBox" /></td>
+				</tr>
+				<tr style="vertical-align:top;">
+					<td><g:HTML text="Grid snapping" /></td>
+					<td><g:ListBox ui:field="gridListBox" /></td>
+				</tr>
+				<tr style="vertical-align:top;">
+					<td><g:HTML text="Revert draggable" /></td>
+					<td><g:ListBox ui:field="revertListBox" /></td>
+				</tr>
+				<tr style="vertical-align:top;">
+					<td><g:HTML text="Revert duration (ms)" /></td>
+					<td><g:TextBox ui:field="revertDurationTextBox" /></td>
+				</tr>
+				<tr style="vertical-align:top;">
+					<td><g:HTML text="Automatic scroll enabled" /></td>
+					<td><g:CheckBox ui:field="scrollCheckBox" /></td>
+				</tr>
+				<tr style="vertical-align:top;">
+					<td><g:HTML text="Scroll sensitivity" /></td>
+					<td><g:TextBox ui:field="scrollSensivityBox" /></td>
+				</tr>
+				<tr style="vertical-align:top;">
+					<td><g:HTML text="Scroll speed" /></td>
+					<td><g:TextBox ui:field="scrollSpeedBox" /></td>
+				</tr>
+				<tr style="vertical-align:top;">
+					<td><g:HTML text="Delay before start drag (in ms)" /></td>
+					<td><g:TextBox ui:field="delayBox" /></td>
+				</tr>
+				<tr style="vertical-align:top;">
+					<td><g:HTML text="Distance before start drag (in px)" /></td>
+					<td><g:TextBox ui:field="distanceBox" /></td>
+				</tr>
+			</tbody>
+		</table>
+	</g:HTMLPanel>
+	</g:DecoratorPanel>
+</ui:UiBinder> 

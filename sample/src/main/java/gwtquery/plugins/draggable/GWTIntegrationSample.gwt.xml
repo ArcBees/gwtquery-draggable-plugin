@@ -1,0 +1,6 @@
+<module rename-to='GWTIntegrationSample'>
+    <inherits name='gwtquery.plugins.draggable.Draggable'/>
+    <inherits name='com.google.gwt.user.theme.chrome.Chrome'/>
+    <entry-point class='gwtquery.plugins.draggable.client.GWTIntegrationSample'/>
+</module>
+    

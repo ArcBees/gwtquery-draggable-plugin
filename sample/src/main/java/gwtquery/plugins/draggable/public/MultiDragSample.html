@@ -1,0 +1,143 @@
+<!doctype html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>GwtQuery: Multi-drag sample</title>
+<style type="text/css">
+body {
+	color: black;
+	font-family: Arial Unicode MS, Arial, sans-serif;
+	font-size: small;
+}
+
+h3 {
+    font-family: Arial Unicode MS, Arial, sans-serif;
+    font-size: small;
+}
+
+.ui-widget-content {
+	width:120px;
+    height:120px;
+	padding: 0.5em;
+	border: black solid 1px;
+	background: #f6f6f6;
+	float: left;
+	display: inline;
+    margin: 5px;
+}
+
+.demo {
+	width: 900px;
+	margin-right: auto;
+	margin-left: auto;
+	padding: 10px;
+	border: black solid 1px;
+}
+
+#setOfDraggable {
+	clear: both;
+	float: left;
+	width: 368px;
+	height: 120px;
+}
+
+.selected{
+  background-color: #C1DEFD;
+    color: white;
+}
+</style>
+<script language="javascript" src="MultiDragSample.nocache.js"></script>
+</head>
+
+<body>
+
+
+<div class="demo">
+
+
+<h1>GWTQuery draggable plugin : multi-drag sample</h1>
+
+<ul style="padding: 10px 0px; list-style: none; display: block">
+	<li style="float: left;"><a
+		href="../DraggableSample1/DraggableSample1.html">To start</a>&nbsp;|&nbsp;
+	</li>
+	<li style="float: left;"><a
+		href="../DraggableSample2/DraggableSample2.html">Test the options</a>&nbsp;|&nbsp;
+	</li>
+	<li style="float: left;"><a href="../SnapSample/SnapSample.html">Snap
+	sample</a>&nbsp;|&nbsp;</li>
+	<li style="float: left;"><a
+		href="../ContainmentSample/Containment.html">Containment sample</a>&nbsp;|&nbsp;
+	</li>
+	<li style="float: left;"><a href="../StackSample/StackSample.html">Stack
+	sample</a>&nbsp;|&nbsp;</li>
+    <li style="float: left;"><a href="../MultiDragSample/MultiDragSample.html">Multi-drag
+    sample</a>&nbsp;|&nbsp;</li>
+	<li style="float: left;"><a
+		href="../GWTIntegrationSample/GWTIntegrationSample.html">Integration
+	with GWT</a></li>
+</ul>
+
+
+<p>All draggables having the same scope and the options multiDrag set to true can be selected and dragged together. To select a "selectable" draggable, just press the ctrl or cmd key and click on it.<br/>
+The groupingMode option allows to rearrange the dragging display helper when the drag start. This way, you can decide to align the drag helper horizontally or vertically or both.<br />
+The select option allows to select programmatically other draggable elements that will drag in the same time that the initial draggable (i.e. the draggrable that initiate the drag operation)  </p>
+
+<div style="height: 800px; border: 1px solid black; position: relative; width: 100%;">
+<h3 style="padding-bottom:5px; padding-top:5px;">Basic functionality : press ctrl or cmd key, select draggable by click and drag it together.</h3>
+<div class="ui-widget-content multi-draggable">
+<p>I can drag alone or with the two others draggable.</p>
+</div>
+
+<div class="ui-widget-content multi-draggable">
+<p>I can drag alone or with the two others draggable.</p>
+</div>
+
+<div class="ui-widget-content multi-draggable">
+<p>I can drag alone or with the two others draggable.</p>
+</div>
+
+
+<h3 style="clear:left;padding-bottom:5px; padding-top:5px;">Use the groupingMode option to rearrange the drag helpers during a multi-drag:</h3>
+<div id="up" class="ui-widget-content">
+<p>I will be grouped up to the initial draggable.</p>
+</div>
+
+<div id="down" class="ui-widget-content">
+<p>I will be grouped down to the initial draggable.</p>
+</div>
+
+<div id="left" class="ui-widget-content">
+<p>I will be grouped at the left of the initial draggable.</p>
+</div>
+
+<div id="right" class="ui-widget-content">
+<p>I will be grouped at the right of the initial draggable.</p>
+</div>
+
+<div id="none" class="ui-widget-content">
+<p>I will be not grouped.</p>
+</div>
+
+
+<h3 style="clear: left;padding-bottom:5px; padding-top:15px;">The select option allows to automatically select other elements that will be dragged with the initial draggable:</h3>
+
+<div id="draggable1" class="ui-widget-content">
+<p>I'm the draggable1. Draggable2 will follow me when I'll drag</p>
+</div>
+<div id="draggable2" class="ui-widget-content">
+<p>I'm the draggable2. Draggable3 will follow me when I'll drag</p>
+</div>
+
+<div id="draggable3" class="ui-widget-content">
+<p>I'm the draggable3. Draggable1 and draggable2 will follow me when I'll drag</p>
+</div>
+
+</div>
+
+<br />
+<a
+	href="http://code.google.com/p/gwtquery-plugins/source/browse/trunk/draggable/sample/src/main/java/gwtquery/plugins/draggable/client/MultiDragSample.java"
+	target="_blank">Java source code</a></div>
+</body>
+</html>
