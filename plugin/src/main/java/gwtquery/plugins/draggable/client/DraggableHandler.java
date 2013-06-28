@@ -1,12 +1,12 @@
 /*
  * Copyright 2010 The gwtquery plugins team.
- * 
+ *
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not
  * use this file except in compliance with the License. You may obtain a copy of
  * the License at
- * 
+ *
  * http://www.apache.org/licenses/LICENSE-2.0
- * 
+ *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
  * WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
@@ -15,31 +15,29 @@
  */
 package gwtquery.plugins.draggable.client;
 
-import static com.google.gwt.query.client.GQuery.$;
-import static com.google.gwt.query.client.GQuery.body;
-
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.dom.client.Element;
 import com.google.gwt.dom.client.Style.Position;
 import com.google.gwt.dom.client.Style.Unit;
 import com.google.gwt.query.client.Function;
 import com.google.gwt.query.client.GQuery;
-import com.google.gwt.query.client.Properties;
 import com.google.gwt.query.client.GQuery.Offset;
+import com.google.gwt.query.client.Properties;
 import com.google.gwt.query.client.plugins.Effects;
 import com.google.gwt.query.client.plugins.UiPlugin;
 import com.google.gwt.query.client.plugins.UiPlugin.Dimension;
 import com.google.gwt.query.client.plugins.effects.PropertiesAnimation.Easing;
 import com.google.gwt.query.client.plugins.events.GqEvent;
 import com.google.gwt.user.client.Window;
-
-import static gwtquery.plugins.draggable.client.Draggable.DRAGGABLE_HANDLER_KEY;
-
 import gwtquery.plugins.draggable.client.Draggable.CssClassNames;
 import gwtquery.plugins.draggable.client.DraggableOptions.AxisOption;
 import gwtquery.plugins.draggable.client.DraggableOptions.CursorAt;
 import gwtquery.plugins.draggable.client.DraggableOptions.HelperType;
 import gwtquery.plugins.draggable.client.impl.DraggableHandlerImpl;
+
+import static com.google.gwt.query.client.GQuery.$;
+import static com.google.gwt.query.client.GQuery.body;
+import static gwtquery.plugins.draggable.client.Draggable.DRAGGABLE_HANDLER_KEY;
 
 public class DraggableHandler {
 
@@ -79,9 +77,9 @@ public class DraggableHandler {
 
   /**
    * convert a relative position to a absolute position and vice versa.
-   * 
-   * @param absolute if true the position is convert to an absolute position, if
-   *          false it is convert in a relative position
+   *
+   * @param absolute  if true the position is convert to an absolute position, if
+   *                  false it is convert in a relative position
    * @param aPosition position to convert
    * @return
    */
@@ -96,7 +94,7 @@ public class DraggableHandler {
         + parentOffset.top
         * mod
         - ("fixed".equals(helperCssPosition) ? -helperScrollParent.scrollTop()
-            : scrollIsRootNode ? 0 : scroll.scrollTop()) * mod;
+        : scrollIsRootNode ? 0 : scroll.scrollTop()) * mod;
 
     int left = aPosition.left
         + relativeOffset.left
@@ -104,7 +102,7 @@ public class DraggableHandler {
         + parentOffset.left
         * mod
         - ("fixed".equals(helperCssPosition) ? -helperScrollParent.scrollLeft()
-            : scrollIsRootNode ? 0 : scroll.scrollLeft()) * mod;
+        : scrollIsRootNode ? 0 : scroll.scrollLeft()) * mod;
 
     return new Offset(left, top);
 
@@ -227,9 +225,8 @@ public class DraggableHandler {
   }
 
   /**
-   * 
    * @param firstTime if true, the helper has to be positionned without take
-   *          care to the axis options
+   *                  care to the axis options
    */
   public void moveHelper(boolean firstTime) {
     if (helper == null || helper.size() == 0) {
@@ -461,10 +458,10 @@ public class DraggableHandler {
 
           pageY = !(isOutOfContainment1 || isOutOfContainment3) ? roundedTop
               : (!isOutOfContainment1) ? roundedTop - grid[1] : roundedTop
-                  + grid[1];
+              + grid[1];
           pageX = !(isOutOfContainment0 || isOutOfContainment2) ? roundedLeft
               : (!isOutOfContainment0) ? roundedLeft - grid[0] : roundedLeft
-                  + grid[0];
+              + grid[0];
 
         } else {
           pageY = roundedTop;
@@ -479,14 +476,14 @@ public class DraggableHandler {
         - relativeOffset.top
         - parentOffset.top
         + ("fixed".equals(helperCssPosition) ? -helperScrollParent.scrollTop()
-            : scrollIsRootNode ? 0 : scroll.scrollTop());
+        : scrollIsRootNode ? 0 : scroll.scrollTop());
 
     int left = pageX
         - offsetClick.left
         - relativeOffset.left
         - parentOffset.left
         + ("fixed".equals(helperCssPosition) ? -helperScrollParent.scrollLeft()
-            : scrollIsRootNode ? 0 : scroll.scrollLeft());
+        : scrollIsRootNode ? 0 : scroll.scrollLeft());
     return new Offset(left, top);
   }
 
@@ -516,7 +513,7 @@ public class DraggableHandler {
     assert helperOffsetParent != null && helperScrollParent != null;
     return !"html".equalsIgnoreCase(helperScrollParent.get(0).getTagName())
         && UiPlugin.contains(helperScrollParent.get(0),
-            helperOffsetParent.get(0));
+        helperOffsetParent.get(0));
   }
 
 }

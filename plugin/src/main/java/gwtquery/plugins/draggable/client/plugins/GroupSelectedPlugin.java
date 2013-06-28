@@ -1,12 +1,12 @@
 /*
  * Copyright 2010 The gwtquery plugins team.
- * 
+ *
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not
  * use this file except in compliance with the License. You may obtain a copy of
  * the License at
- * 
+ *
  * http://www.apache.org/licenses/LICENSE-2.0
- * 
+ *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
  * WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
@@ -15,23 +15,21 @@
  */
 package gwtquery.plugins.draggable.client.plugins;
 
-import static com.google.gwt.query.client.GQuery.$;
-
 import com.google.gwt.dom.client.Element;
 import com.google.gwt.query.client.GQuery;
 import com.google.gwt.query.client.GQuery.Offset;
 import com.google.gwt.query.client.plugins.events.GqEvent;
-
 import gwtquery.plugins.draggable.client.DraggableHandler;
 import gwtquery.plugins.draggable.client.DraggableOptions;
 import gwtquery.plugins.draggable.client.DraggableOptions.GroupingMode;
 import gwtquery.plugins.draggable.client.events.DragContext;
 
+import static com.google.gwt.query.client.GQuery.$;
+
 /**
  * Plugin used when multi-draggable is on to group helper together.
- * 
+ *
  * @author Julien Dramaix (julien.dramaix@gmail.com, @jdramaix)
- * 
  */
 public class GroupSelectedPlugin implements DraggablePlugin {
 
@@ -83,63 +81,63 @@ public class GroupSelectedPlugin implements DraggablePlugin {
     Offset newPosition = null;
 
     switch (groupingMode) {
-    case DOWN:
-      HelperInfo lastDown = $initialDraggable.data(LAST_DOWN, HelperInfo.class);
-      if (lastDown == null) {
-        lastDown = new HelperInfo(initialDragHandler.getAbsolutePosition(),
-            initialDragHandler.getHelper());
-      }
+      case DOWN:
+        HelperInfo lastDown = $initialDraggable.data(LAST_DOWN, HelperInfo.class);
+        if (lastDown == null) {
+          lastDown = new HelperInfo(initialDragHandler.getAbsolutePosition(),
+              initialDragHandler.getHelper());
+        }
 
-      newPosition = lastDown.offset.add(0, lastDown.height + groupSpacing);
-      HelperInfo newLastDown = new HelperInfo(newPosition, handler.getHelper());
-      $initialDraggable.data(LAST_DOWN, newLastDown);
+        newPosition = lastDown.offset.add(0, lastDown.height + groupSpacing);
+        HelperInfo newLastDown = new HelperInfo(newPosition, handler.getHelper());
+        $initialDraggable.data(LAST_DOWN, newLastDown);
 
-      break;
+        break;
 
-    case UP:
-      HelperInfo lastUp = $initialDraggable.data(LAST_UP, HelperInfo.class);
-      if (lastUp == null) {
-        lastUp = new HelperInfo(initialDragHandler.getAbsolutePosition(),
-            initialDragHandler.getHelper());
-      }
+      case UP:
+        HelperInfo lastUp = $initialDraggable.data(LAST_UP, HelperInfo.class);
+        if (lastUp == null) {
+          lastUp = new HelperInfo(initialDragHandler.getAbsolutePosition(),
+              initialDragHandler.getHelper());
+        }
 
-      newPosition = lastUp.offset.add(0, -handler.getHelperDimension()
-          .getHeight()
-          - groupSpacing);
-      HelperInfo newLastUp = new HelperInfo(newPosition, handler.getHelper());
-      $initialDraggable.data(LAST_UP, newLastUp);
-      break;
-    case LEFT:
-      HelperInfo lastLeft = $initialDraggable.data(LAST_LEFT, HelperInfo.class);
-      if (lastLeft == null) {
-        lastLeft = new HelperInfo(initialDragHandler.getAbsolutePosition(),
-            initialDragHandler.getHelper());
-      }
+        newPosition = lastUp.offset.add(0, -handler.getHelperDimension()
+            .getHeight()
+            - groupSpacing);
+        HelperInfo newLastUp = new HelperInfo(newPosition, handler.getHelper());
+        $initialDraggable.data(LAST_UP, newLastUp);
+        break;
+      case LEFT:
+        HelperInfo lastLeft = $initialDraggable.data(LAST_LEFT, HelperInfo.class);
+        if (lastLeft == null) {
+          lastLeft = new HelperInfo(initialDragHandler.getAbsolutePosition(),
+              initialDragHandler.getHelper());
+        }
 
-      newPosition = lastLeft.offset.add(-handler.getHelperDimension()
-          .getWidth()
-          - groupSpacing, 0);
-      HelperInfo newLastLeft = new HelperInfo(newPosition, handler.getHelper());
-      $initialDraggable.data(LAST_LEFT, newLastLeft);
+        newPosition = lastLeft.offset.add(-handler.getHelperDimension()
+            .getWidth()
+            - groupSpacing, 0);
+        HelperInfo newLastLeft = new HelperInfo(newPosition, handler.getHelper());
+        $initialDraggable.data(LAST_LEFT, newLastLeft);
 
-      break;
+        break;
 
-    case RIGHT:
-      HelperInfo lastRight = $initialDraggable.data(LAST_RIGHT,
-          HelperInfo.class);
-      if (lastRight == null) {
-        lastRight = new HelperInfo(initialDragHandler.getAbsolutePosition(),
-            initialDragHandler.getHelper());
-      }
+      case RIGHT:
+        HelperInfo lastRight = $initialDraggable.data(LAST_RIGHT,
+            HelperInfo.class);
+        if (lastRight == null) {
+          lastRight = new HelperInfo(initialDragHandler.getAbsolutePosition(),
+              initialDragHandler.getHelper());
+        }
 
-      newPosition = lastRight.offset.add(lastRight.width + groupSpacing, 0);
-      HelperInfo newLastRight = new HelperInfo(newPosition, handler.getHelper());
-      $initialDraggable.data(LAST_RIGHT, newLastRight);
+        newPosition = lastRight.offset.add(lastRight.width + groupSpacing, 0);
+        HelperInfo newLastRight = new HelperInfo(newPosition, handler.getHelper());
+        $initialDraggable.data(LAST_RIGHT, newLastRight);
 
-      break;
+        break;
 
-    default:
-      break;
+      default:
+        break;
     }
 
     if (newPosition != null) {

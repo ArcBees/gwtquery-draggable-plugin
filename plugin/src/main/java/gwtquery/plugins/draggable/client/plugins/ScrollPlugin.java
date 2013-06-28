@@ -1,12 +1,12 @@
 /*
  * Copyright 2010 The gwtquery plugins team.
- * 
+ *
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not
  * use this file except in compliance with the License. You may obtain a copy of
  * the License at
- * 
+ *
  * http://www.apache.org/licenses/LICENSE-2.0
- * 
+ *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
  * WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
@@ -15,26 +15,24 @@
  */
 package gwtquery.plugins.draggable.client.plugins;
 
-import static com.google.gwt.query.client.GQuery.$;
-import static com.google.gwt.query.client.GQuery.document;
-
 import com.google.gwt.dom.client.Element;
 import com.google.gwt.query.client.GQuery;
 import com.google.gwt.query.client.GQuery.Offset;
 import com.google.gwt.query.client.plugins.events.GqEvent;
 import com.google.gwt.user.client.Window;
-
 import gwtquery.plugins.draggable.client.DragAndDropManager;
 import gwtquery.plugins.draggable.client.DraggableHandler;
 import gwtquery.plugins.draggable.client.DraggableOptions;
 import gwtquery.plugins.draggable.client.DraggableOptions.AxisOption;
 import gwtquery.plugins.draggable.client.events.DragContext;
 
+import static com.google.gwt.query.client.GQuery.$;
+import static com.google.gwt.query.client.GQuery.document;
+
 /**
  * This add-on handle scrolling of parent element.
- * 
+ *
  * @author Julien Dramaix (julien.dramaix@gmail.com, @jdramaix)
- * 
  */
 public class ScrollPlugin implements DraggablePlugin {
 
@@ -48,7 +46,7 @@ public class ScrollPlugin implements DraggablePlugin {
     return options.isScroll();
   }
 
-  public void onDrag(DraggableHandler handler,  DragContext ctx, GqEvent e) {
+  public void onDrag(DraggableHandler handler, DragContext ctx, GqEvent e) {
     DraggableOptions options = handler.getOptions();
     Element draggableElement = ctx.getDraggable();
     GQuery scrollParent = handler.getHelperScrollParent();
@@ -124,13 +122,13 @@ public class ScrollPlugin implements DraggablePlugin {
     }
 
     if (scrolled && DragAndDropManager.getInstance().isHandleDroppable(ctx)) {
-      DragAndDropManager.getInstance().initialize(ctx,e);
+      DragAndDropManager.getInstance().initialize(ctx, e);
     }
 
   }
 
-  public void onStart(DraggableHandler handler,  DragContext ctx,
-      GqEvent e) {
+  public void onStart(DraggableHandler handler, DragContext ctx,
+                      GqEvent e) {
 
     GQuery scrollParent = handler.getHelperScrollParent();
     Element scrollParentElement = scrollParent.get(0);
@@ -142,7 +140,7 @@ public class ScrollPlugin implements DraggablePlugin {
     }
   }
 
-  public void onStop(DraggableHandler handler,  DragContext ctx, GqEvent e) {
+  public void onStop(DraggableHandler handler, DragContext ctx, GqEvent e) {
     $(ctx.getDraggable()).removeData(OVERFLOW_OFFSET_KEY);
 
   }

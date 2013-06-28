@@ -1,12 +1,12 @@
 /*
  * Copyright 2010 The gwtquery plugins team.
- * 
+ *
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not
  * use this file except in compliance with the License. You may obtain a copy of
  * the License at
- * 
+ *
  * http://www.apache.org/licenses/LICENSE-2.0
- * 
+ *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
  * WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
@@ -15,21 +15,19 @@
  */
 package gwtquery.plugins.draggable.client.plugins;
 
-import static com.google.gwt.query.client.GQuery.$;
-
 import com.google.gwt.query.client.GQuery;
 import com.google.gwt.query.client.plugins.events.GqEvent;
-
 import gwtquery.plugins.draggable.client.DraggableHandler;
 import gwtquery.plugins.draggable.client.DraggableOptions;
 import gwtquery.plugins.draggable.client.DraggableOptions.HelperType;
 import gwtquery.plugins.draggable.client.events.DragContext;
 
+import static com.google.gwt.query.client.GQuery.$;
+
 /**
  * This add-on handle opacity of the helper
- * 
+ *
  * @author Julien Dramaix (julien.dramaix@gmail.com, @jdramaix)
- * 
  */
 public class OpacityPlugin implements DraggablePlugin {
 
@@ -49,8 +47,8 @@ public class OpacityPlugin implements DraggablePlugin {
     // do nothing
   }
 
-  public void onStart(DraggableHandler handler,  DragContext ctx,
-      GqEvent e) {
+  public void onStart(DraggableHandler handler, DragContext ctx,
+                      GqEvent e) {
     Float opacity = handler.getOptions().getOpacity();
 
     GQuery $helper = handler.getHelper();
@@ -62,9 +60,9 @@ public class OpacityPlugin implements DraggablePlugin {
 
   }
 
-  public void onStop(DraggableHandler handler,  DragContext ctx, GqEvent e) {
+  public void onStop(DraggableHandler handler, DragContext ctx, GqEvent e) {
     GQuery $element = (handler.getOptions().getHelperType() == HelperType.ORIGINAL) ? handler.getHelper() : $(ctx.getDraggable());
-    if ($element == null || $element.length() == 0){
+    if ($element == null || $element.length() == 0) {
       return;
     }
 
@@ -72,7 +70,7 @@ public class OpacityPlugin implements DraggablePlugin {
       return;
     }
     Double oldOpacity = $element.data(OLD_OPACITY_KEY, Double.class);
-    $element.css(OPACITY_CSS_KEY, oldOpacity != null ? String.valueOf(oldOpacity):"");
+    $element.css(OPACITY_CSS_KEY, oldOpacity != null ? String.valueOf(oldOpacity) : "");
     $element.removeData(OLD_OPACITY_KEY);
 
   }

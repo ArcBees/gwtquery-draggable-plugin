@@ -1,12 +1,12 @@
 /*
  * Copyright 2010 The gwtquery plugins team.
- * 
+ *
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not
  * use this file except in compliance with the License. You may obtain a copy of
  * the License at
- * 
+ *
  * http://www.apache.org/licenses/LICENSE-2.0
- * 
+ *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
  * WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
@@ -15,14 +15,6 @@
  */
 
 package gwtquery.plugins.draggable.client;
-
-import gwtquery.plugins.draggable.client.events.DragEvent;
-import gwtquery.plugins.draggable.client.events.DragStopEvent;
-import gwtquery.plugins.draggable.client.events.DragEvent.DragEventHandler;
-import gwtquery.plugins.draggable.client.events.DragStopEvent.DragStopEventHandler;
-import gwtquery.plugins.draggable.client.gwt.DraggableWidget;
-
-import java.util.Date;
 
 import com.google.gwt.core.client.EntryPoint;
 import com.google.gwt.core.client.GWT;
@@ -39,6 +31,7 @@ import com.google.gwt.user.client.Window;
 import com.google.gwt.user.client.ui.DecoratedTabPanel;
 import com.google.gwt.user.client.ui.DecoratorPanel;
 import com.google.gwt.user.client.ui.FlexTable;
+import com.google.gwt.user.client.ui.FlexTable.FlexCellFormatter;
 import com.google.gwt.user.client.ui.HTML;
 import com.google.gwt.user.client.ui.HasHorizontalAlignment;
 import com.google.gwt.user.client.ui.Label;
@@ -50,28 +43,33 @@ import com.google.gwt.user.client.ui.Tree;
 import com.google.gwt.user.client.ui.TreeItem;
 import com.google.gwt.user.client.ui.VerticalPanel;
 import com.google.gwt.user.client.ui.Widget;
-import com.google.gwt.user.client.ui.FlexTable.FlexCellFormatter;
 import com.google.gwt.user.datepicker.client.DatePicker;
+import gwtquery.plugins.draggable.client.events.DragEvent;
+import gwtquery.plugins.draggable.client.events.DragEvent.DragEventHandler;
+import gwtquery.plugins.draggable.client.events.DragStopEvent;
+import gwtquery.plugins.draggable.client.events.DragStopEvent.DragStopEventHandler;
+import gwtquery.plugins.draggable.client.gwt.DraggableWidget;
+
+import java.util.Date;
 
 /**
  * Sample of the integration of draggable plugin and GWT
- * 
+ *
  * @author Julien Dramaix (julien.dramaix@gmail.com)
- * 
  */
 public class GWTIntegrationSample implements EntryPoint {
-  
-  interface Image extends ClientBundle{
+
+  interface Image extends ClientBundle {
     Image INSTANCE = GWT.create(Image.class);
+
     ImageResource gwtLogo();
   }
 
   /**
    * Handler that catch DragEvent and DragStopEvent to fill the information
    * message
-   * 
+   *
    * @author Julien Dramaix (julien.dramaix@gmail.com)
-   * 
    */
   private class DragHandlerImpl implements DragEventHandler,
       DragStopEventHandler {
@@ -107,7 +105,7 @@ public class GWTIntegrationSample implements EntryPoint {
   }
 
   public <T extends Widget> DraggableWidget<T> makeDraggable(T widget,
-      String draggableDescription) {
+                                                             String draggableDescription) {
 
     DraggableWidget<T> dragWidget = new DraggableWidget<T>(widget);
 
@@ -133,15 +131,14 @@ public class GWTIntegrationSample implements EntryPoint {
         makeDraggable(createTabPanel(), "tabPanel"));
     RootPanel.get("gwtIntegrationSampleDiv").add(
         makeDraggable(createDynamicTree(), "tree"));
-    
-    
+
 
   }
 
   /**
    * Create a Date picker. The code comes from the GWT show case :
    * http://gwt.google.com/samples/Showcase/Showcase.html#!CwDatePicker@
-   * 
+   *
    * @return
    */
   private VerticalPanel createDatePanel() {
@@ -173,7 +170,7 @@ public class GWTIntegrationSample implements EntryPoint {
   /**
    * Create a Decorated Form The code comes from the GWT show case :
    * http://gwt.google.com/samples/Showcase/Showcase.html#!CwDecoratorPanel
-   * 
+   *
    * @return
    */
   private DecoratorPanel createDecoratedForm() {
@@ -204,7 +201,7 @@ public class GWTIntegrationSample implements EntryPoint {
   /**
    * Create a Dynamic tree. The code comes from the GWT show case :
    * http://gwt.google.com/samples/Showcase/Showcase.html#!CwTree
-   * 
+   *
    * @return
    */
   private Widget createDynamicTree() {
@@ -253,18 +250,17 @@ public class GWTIntegrationSample implements EntryPoint {
   /**
    * Create a menu bar. The code comes from the GWT show case :
    * http://gwt.google.com/samples/Showcase/Showcase.html#!CwMenuBar
-   * 
+   *
    * @return
-   * 
    */
   private MenuBar createMenuBar() {
     // Create a command that will execute on menu item selection
     Command menuCommand = new Command() {
       private int curPhrase = 0;
-      private final String[] phrases = new String[] {
+      private final String[] phrases = new String[]{
           "Thank you for selecting a menu item", "A fine selection indeed",
           "Don't you have anything better to do than select menu items?",
-          "Try something else", "this is just a menu!", "Another wasted click" };
+          "Try something else", "this is just a menu!", "Another wasted click"};
 
       public void execute() {
         Window.alert(phrases[curPhrase]);
@@ -280,8 +276,8 @@ public class GWTIntegrationSample implements EntryPoint {
 
     // Create a sub menu of recent documents
     MenuBar recentDocsMenu = new MenuBar(true);
-    String[] recentDocs = new String[] { "Fishing in the desert.txt",
-        "How to tame a wild parrot", "Idiots Guide to Emu Farms" };
+    String[] recentDocs = new String[]{"Fishing in the desert.txt",
+        "How to tame a wild parrot", "Idiots Guide to Emu Farms"};
     for (int i = 0; i < recentDocs.length; i++) {
       recentDocsMenu.addItem(recentDocs[i], menuCommand);
     }
@@ -290,8 +286,8 @@ public class GWTIntegrationSample implements EntryPoint {
     MenuBar fileMenu = new MenuBar(true);
     fileMenu.setAnimationEnabled(true);
     menu.addItem(new MenuItem("File", fileMenu));
-    String[] fileOptions = new String[] { "New", "Open", "Close", "Recents",
-        "Exit" };
+    String[] fileOptions = new String[]{"New", "Open", "Close", "Recents",
+        "Exit"};
 
     for (int i = 0; i < fileOptions.length; i++) {
       if (i == 3) {
@@ -306,8 +302,8 @@ public class GWTIntegrationSample implements EntryPoint {
     // Create the edit menu
     MenuBar editMenu = new MenuBar(true);
     menu.addItem(new MenuItem("Edit", editMenu));
-    String[] editOptions = new String[] { "Undo", "Redo", "Copy", "Cut",
-        "Paste" };
+    String[] editOptions = new String[]{"Undo", "Redo", "Copy", "Cut",
+        "Paste"};
 
     for (int i = 0; i < editOptions.length; i++) {
       editMenu.addItem(editOptions[i], menuCommand);
@@ -316,8 +312,8 @@ public class GWTIntegrationSample implements EntryPoint {
     // Create the GWT menu
     MenuBar gwtMenu = new MenuBar(true);
     menu.addItem(new MenuItem("GWT", true, gwtMenu));
-    String[] gwtOptions = new String[] { "Download", "Examples", "Source code",
-        "GWT wit' the program" };
+    String[] gwtOptions = new String[]{"Download", "Examples", "Source code",
+        "GWT wit' the program"};
 
     for (int i = 0; i < gwtOptions.length; i++) {
       gwtMenu.addItem(gwtOptions[i], menuCommand);
@@ -327,8 +323,8 @@ public class GWTIntegrationSample implements EntryPoint {
     MenuBar helpMenu = new MenuBar(true);
     menu.addSeparator();
     menu.addItem(new MenuItem("Help", helpMenu));
-    String[] helpOptions = new String[] { "Contents", "Fortune cookies",
-        "About GWT" };
+    String[] helpOptions = new String[]{"Contents", "Fortune cookies",
+        "About GWT"};
 
     for (int i = 0; i < helpOptions.length; i++) {
       helpMenu.addItem(helpOptions[i], menuCommand);
@@ -343,7 +339,6 @@ public class GWTIntegrationSample implements EntryPoint {
   /**
    * Create a Dynamic tree. The code comes from the GWT show case :
    * http://gwt.google.com/samples/Showcase/Showcase.html#!CwTabPanel
-   * 
    */
   @SuppressWarnings("deprecation")
   private DecoratedTabPanel createTabPanel() {
@@ -353,7 +348,7 @@ public class GWTIntegrationSample implements EntryPoint {
     tabPanel.setAnimationEnabled(true);
 
     // Add a home tab
-    String[] tabTitles = { "Home", "GWT Logo", "More info" };
+    String[] tabTitles = {"Home", "GWT Logo", "More info"};
     HTML homeText = new HTML(
         "Click one of the tabs to see more content. <br/> You can drag me now !");
     tabPanel.add(homeText, tabTitles[0]);

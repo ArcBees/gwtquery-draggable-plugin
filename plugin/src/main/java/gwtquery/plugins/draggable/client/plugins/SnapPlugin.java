@@ -1,12 +1,12 @@
 /*
  * Copyright 2010 The gwtquery plugins team.
- * 
+ *
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not
  * use this file except in compliance with the License. You may obtain a copy of
  * the License at
- * 
+ *
  * http://www.apache.org/licenses/LICENSE-2.0
- * 
+ *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
  * WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
@@ -15,26 +15,24 @@
  */
 package gwtquery.plugins.draggable.client.plugins;
 
-import static com.google.gwt.query.client.GQuery.$;
-
 import com.google.gwt.dom.client.Element;
 import com.google.gwt.query.client.GQuery;
 import com.google.gwt.query.client.GQuery.Offset;
 import com.google.gwt.query.client.plugins.events.GqEvent;
-
-import java.util.ArrayList;
-import java.util.List;
-
 import gwtquery.plugins.draggable.client.DraggableHandler;
 import gwtquery.plugins.draggable.client.DraggableOptions;
 import gwtquery.plugins.draggable.client.DraggableOptions.SnapMode;
 import gwtquery.plugins.draggable.client.events.DragContext;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import static com.google.gwt.query.client.GQuery.$;
+
 /**
  * Add-on allow the draggable to snap other elements
- * 
- * @author Julien Dramaix (julien.dramaix@gmail.com, @jdramaix)
  *
+ * @author Julien Dramaix (julien.dramaix@gmail.com, @jdramaix)
  */
 public class SnapPlugin implements DraggablePlugin {
 
@@ -75,7 +73,7 @@ public class SnapPlugin implements DraggablePlugin {
   }
 
   @SuppressWarnings("unchecked")
-  public void onDrag(DraggableHandler handler,  DragContext ctx, GqEvent e) {
+  public void onDrag(DraggableHandler handler, DragContext ctx, GqEvent e) {
 
     List<SnapElement> snapElements = $(ctx.getDraggable()).data(
         SNAP_ELEMENTS_KEY, ArrayList.class);
@@ -99,13 +97,13 @@ public class SnapPlugin implements DraggablePlugin {
           && snapElementTop - snapTolerance < helperTop && helperTop < snapElementBottom
           + snapTolerance)
           || (snapElementLeft - snapTolerance < helperLeft
-              && helperLeft < snapElementRight + snapTolerance
-              && snapElementTop - snapTolerance < helperBottom && helperBottom < snapElementBottom
-              + snapTolerance)
+          && helperLeft < snapElementRight + snapTolerance
+          && snapElementTop - snapTolerance < helperBottom && helperBottom < snapElementBottom
+          + snapTolerance)
           || (snapElementLeft - snapTolerance < helperRight
-              && helperRight < snapElementRight + snapTolerance
-              && snapElementTop - snapTolerance < helperTop && helperTop < snapElementBottom
-              + snapTolerance) || (snapElementLeft - snapTolerance < helperRight
+          && helperRight < snapElementRight + snapTolerance
+          && snapElementTop - snapTolerance < helperTop && helperTop < snapElementBottom
+          + snapTolerance) || (snapElementLeft - snapTolerance < helperRight
           && helperRight < snapElementRight + snapTolerance
           && snapElementTop - snapTolerance < helperBottom && helperBottom < snapElementBottom
           + snapTolerance))) {
@@ -171,7 +169,7 @@ public class SnapPlugin implements DraggablePlugin {
       }
 
       if (newTopDimension != null) {
-        int newTop = newTopDimension.top- handler.getMargin().top;
+        int newTop = newTopDimension.top - handler.getMargin().top;
         int newLeft = handler.getPosition().left;
         handler.setPosition(new Offset(newLeft, newTop));
 
@@ -188,8 +186,8 @@ public class SnapPlugin implements DraggablePlugin {
     }
   }
 
-  public void onStart(DraggableHandler handler,  DragContext ctx,
-      GqEvent e) {
+  public void onStart(DraggableHandler handler, DragContext ctx,
+                      GqEvent e) {
     Element draggableElement = ctx.getDraggable();
     List<SnapElement> snapElements = new ArrayList<SnapElement>();
     GQuery snap = (handler.getOptions().getSnap_$() != null ? handler
@@ -205,8 +203,8 @@ public class SnapPlugin implements DraggablePlugin {
     $(draggableElement).data(SNAP_ELEMENTS_KEY, snapElements);
 
   }
-  
-  public void onStop(DraggableHandler handler,  DragContext ctx, GqEvent e) {
+
+  public void onStop(DraggableHandler handler, DragContext ctx, GqEvent e) {
     // nothing to do
   }
 

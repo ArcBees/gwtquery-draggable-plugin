@@ -1,12 +1,12 @@
 /*
  * Copyright 2010 The gwtquery plugins team.
- * 
+ *
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not
  * use this file except in compliance with the License. You may obtain a copy of
  * the License at
- * 
+ *
  * http://www.apache.org/licenses/LICENSE-2.0
- * 
+ *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
  * WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
@@ -28,12 +28,6 @@ import com.google.gwt.query.client.GQuery;
 import com.google.gwt.query.client.plugins.MousePlugin;
 import com.google.gwt.query.client.plugins.Plugin;
 import com.google.gwt.query.client.plugins.events.GqEvent;
-
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-
 import gwtquery.plugins.draggable.client.DraggableOptions.DragFunction;
 import gwtquery.plugins.draggable.client.DraggableOptions.HelperType;
 import gwtquery.plugins.draggable.client.DraggableOptions.RevertOption;
@@ -54,6 +48,11 @@ import gwtquery.plugins.draggable.client.plugins.SnapPlugin;
 import gwtquery.plugins.draggable.client.plugins.StackPlugin;
 import gwtquery.plugins.draggable.client.plugins.ZIndexPlugin;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
 /**
  * Draggable plugin for GwtQuery
  */
@@ -61,7 +60,6 @@ public class Draggable extends MousePlugin {
 
   /**
    * Interface containing all css classes used in this plug-in
-   * 
    */
   public static interface CssClassNames {
     String GWT_DRAGGABLE = "gwtQuery-draggable";
@@ -141,7 +139,7 @@ public class Draggable extends MousePlugin {
 
   /**
    * Register a draggable plugin that will be called during the drag operation
-   * 
+   *
    * @param plugin
    */
   public static void registerDraggablePlugin(DraggablePlugin plugin) {
@@ -152,7 +150,7 @@ public class Draggable extends MousePlugin {
   }
 
   private static void trigger(GwtEvent<?> e, DragFunction callback,
-      DragContext dragContext, HasHandlers handlerManager) {
+                              DragContext dragContext, HasHandlers handlerManager) {
     if (handlerManager != null && e != null) {
       handlerManager.fireEvent(e);
     }
@@ -166,7 +164,7 @@ public class Draggable extends MousePlugin {
 
   /**
    * Constructor
-   * 
+   *
    * @param gq
    */
   protected Draggable(GQuery gq) {
@@ -177,7 +175,7 @@ public class Draggable extends MousePlugin {
    * Remove the draggable behavior to the selected elements. This method
    * releases resources used by the plugin and should be called when an element
    * is removed of the DOM.
-   * 
+   *
    * @return
    */
   public Draggable destroy() {
@@ -195,7 +193,7 @@ public class Draggable extends MousePlugin {
 
   /**
    * Make the selected elements draggable with default options
-   * 
+   *
    * @return
    */
   public Draggable draggable() {
@@ -204,7 +202,7 @@ public class Draggable extends MousePlugin {
 
   /**
    * Make the selected elements draggable by using the <code>options</code>
-   * 
+   *
    * @param options options to use during the drag operation
    * @return
    */
@@ -215,8 +213,8 @@ public class Draggable extends MousePlugin {
   /**
    * Make the selected elements draggable by using the <code>options</code>. All
    * drag events will be fired on the <code>eventBus</code>
-   * 
-   * @param options options to use during the drag operation
+   *
+   * @param options  options to use during the drag operation
    * @param eventBus The eventBus to use to fire events.
    * @return
    */
@@ -246,8 +244,8 @@ public class Draggable extends MousePlugin {
   /**
    * Make the selected elements draggable with default options. All drag events
    * will be fired on the <code>eventBus</code>
-   * 
-   *@param eventBus The eventBus to use to fire events.
+   *
+   * @param eventBus The eventBus to use to fire events.
    * @return
    */
   public Draggable draggable(HasHandlers eventBus) {
@@ -256,7 +254,7 @@ public class Draggable extends MousePlugin {
 
   /**
    * Get the {@link DraggableOptions} for the first element.
-   * 
+   *
    * @return
    */
   public DraggableOptions options() {
@@ -272,7 +270,7 @@ public class Draggable extends MousePlugin {
 
   /**
    * Set the DraggableOptions on each element.
-   * 
+   *
    * @param options
    * @return
    */
@@ -330,7 +328,7 @@ public class Draggable extends MousePlugin {
     if (!options.isMultipleSelection()) {
       // ensure all previously selected element are unselected
       unselectAll();
-    
+
     } else {
 
       if (event.isMetaKeyPressed()) {
@@ -347,7 +345,7 @@ public class Draggable extends MousePlugin {
         // deselect all and select the draggable.
         unselectAll();
         select(draggable, options.getSelectedClassName());
-        
+
       }
     }
     return super.mouseDown(draggable, event) && !event.isMetaKeyPressed();
@@ -522,7 +520,7 @@ public class Draggable extends MousePlugin {
    * implementation of mouse drag
    */
   private boolean mouseDragImpl(DragContext ctx, DraggableHandler dragHandler,
-      GqEvent event, boolean noPropagation) {
+                                GqEvent event, boolean noPropagation) {
     Element draggable = ctx.getDraggable();
 
     dragHandler.regeneratePositions(event);
@@ -663,7 +661,7 @@ public class Draggable extends MousePlugin {
   }
 
   private native boolean positionIsFixedAbsoluteOrRelative(String position) /*-{
-    return (/^(?:r|a|f)/).test(position);
+      return (/^(?:r|a|f)/).test(position);
   }-*/;
 
   private void select(Element draggable, String selectedCssClass) {
@@ -695,19 +693,19 @@ public class Draggable extends MousePlugin {
   }
 
   private void trigger(GwtEvent<?> e, DragFunction callback,
-      DragContext dragContext) {
+                       DragContext dragContext) {
     trigger(e, callback, dragContext, eventBus);
   }
 
   /**
    * Use a deferred command to be sure that this event is trigger after the
    * possible drop event.
-   * 
+   *
    * @param draggable
    * @param options
    */
   private void triggerDragStop(final DragContext ctx,
-      final DraggableOptions options) {
+                               final DraggableOptions options) {
     Scheduler.get().scheduleDeferred(new ScheduledCommand() {
 
       public void execute() {

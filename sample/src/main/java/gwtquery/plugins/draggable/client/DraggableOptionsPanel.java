@@ -1,7 +1,5 @@
 package gwtquery.plugins.draggable.client;
 
-import static com.google.gwt.query.client.GQuery.$;
-
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.dom.client.Element;
 import com.google.gwt.dom.client.Style.Cursor;
@@ -20,7 +18,6 @@ import com.google.gwt.user.client.ui.Composite;
 import com.google.gwt.user.client.ui.ListBox;
 import com.google.gwt.user.client.ui.TextBox;
 import com.google.gwt.user.client.ui.Widget;
-
 import gwtquery.plugins.draggable.client.DraggableOptions.AxisOption;
 import gwtquery.plugins.draggable.client.DraggableOptions.CursorAt;
 import gwtquery.plugins.draggable.client.DraggableOptions.HelperType;
@@ -28,6 +25,8 @@ import gwtquery.plugins.draggable.client.DraggableOptions.RevertOption;
 
 import java.util.HashMap;
 import java.util.Map;
+
+import static com.google.gwt.query.client.GQuery.$;
 
 public class DraggableOptionsPanel extends Composite {
 
@@ -60,7 +59,7 @@ public class DraggableOptionsPanel extends Composite {
     contaimentOptions.put("document", "document");
     contaimentOptions.put(
         "on a virtual box (position:left=300px,top=500px,height=width=300px) ",
-        new int[] { 300, 500, 600, 800 });
+        new int[]{300, 500, 600, 800});
 
   }
 
@@ -178,7 +177,7 @@ public class DraggableOptionsPanel extends Composite {
     } else {
       String[] dimension = grid.split(",");
       getOptions().setGrid(
-          new int[] { new Integer(dimension[0]), new Integer(dimension[1]) });
+          new int[]{new Integer(dimension[0]), new Integer(dimension[1])});
     }
   }
 
