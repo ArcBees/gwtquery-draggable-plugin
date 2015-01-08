@@ -8,3 +8,4 @@ More information available at :  http://code.google.com/p/gwtquery-plugins/wiki/
 
 Examples are available [here](http://gwtquery-plugins.googlecode.com/svn/branches/draggable_1_0/demo/DraggableSample1/DraggableSample1.html)
 
+Original author of this plugin: [Julien Dramaix](https://github.com/jdramaix)
