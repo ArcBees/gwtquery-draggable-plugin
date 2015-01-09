@@ -15,23 +15,15 @@
  */
 package gwtquery.plugins.draggable.client.impl;
 
-i
+import com.google.gwt.dom.client.Element;
+import com.google.gwt.query.client.GQuery;
+import com.google.gwt.query.client.GQuery.Offset;
+import com.google.gwt.query.client.plugins.UiPlugin;
 
-ort co .google.gwt.dom.client.Element;
-im
-ort co .google.gwt.query.client.GQuery;
-im
-ort co .google.gwt.query.client.GQuery.Offset;
-im
-ort co .google.gwt.query.client.plugins.UiPlugin.Dimension;
-im
-ort gw query.plugins.draggable.client.DraggableHandler;
-im
-ort gw query.plugins.draggable.client.DraggableOptions.HelperType;
+import gwtquery.plugins.draggable.client.DraggableHandler;
+import gwtquery.plugins.draggable.client.DraggableOptions.HelperType;
 
-i
-
-ort st tic co .google.gwt.query.client.GQuery.$;
+import static com.google.gwt.query.client.GQuery.$;
 
 /**
  * @author Julien Dramaix (julien.dramaix@gmail.com, @jdramaix)
@@ -46,7 +38,7 @@ public class DraggableHandlerImpl {
                                     Element containerElement, boolean overflow) {
 
     Offset helperMargin = draggableHandler.getMargin();
-    Dimension helperDimension = draggableHandler.getHelperDimension();
+    UiPlugin.Dimension helperDimension = draggableHandler.getHelperDimension();
 
     return new int[]{
         containerOffset.left
