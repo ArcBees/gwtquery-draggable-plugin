@@ -25,6 +25,7 @@ import com.google.gwt.event.logical.shared.ValueChangeHandler;
 import com.google.gwt.i18n.client.DateTimeFormat;
 import com.google.gwt.resources.client.ClientBundle;
 import com.google.gwt.resources.client.ImageResource;
+import com.google.gwt.safehtml.shared.SafeHtmlUtils;
 import com.google.gwt.user.client.Command;
 import com.google.gwt.user.client.Random;
 import com.google.gwt.user.client.Window;
@@ -210,10 +211,10 @@ public class GWTIntegrationSample implements EntryPoint {
 
     // Add some default tree items
     for (int i = 0; i < 5; i++) {
-      TreeItem item = dynamicTree.addItem("Item " + i);
+      TreeItem item = dynamicTree.addItem(SafeHtmlUtils.fromString("Item " + i));
 
       // Temporarily add an item so we can expand this node
-      item.addItem("");
+      item.addItem(SafeHtmlUtils.fromString(""));
     }
 
     // Add a handler that automatically generates some children
@@ -228,8 +229,8 @@ public class GWTIntegrationSample implements EntryPoint {
           String itemText = item.getText();
           int numChildren = Random.nextInt(5) + 2;
           for (int i = 0; i < numChildren; i++) {
-            TreeItem child = item.addItem(itemText + "." + i);
-            child.addItem("");
+            TreeItem child = item.addItem(SafeHtmlUtils.fromString(itemText + "." + i));
+            child.addItem(SafeHtmlUtils.fromString(""));
           }
 
           // Remove the temporary item when we finish loading

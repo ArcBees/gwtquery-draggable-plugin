@@ -1,6 +1,10 @@
 package gwtquery.plugins.draggable.client;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import com.google.gwt.core.client.GWT;
+import com.google.gwt.core.client.Scheduler;
 import com.google.gwt.dom.client.Element;
 import com.google.gwt.dom.client.Style.Cursor;
 import com.google.gwt.event.dom.client.ChangeEvent;
@@ -10,21 +14,17 @@ import com.google.gwt.uibinder.client.UiBinder;
 import com.google.gwt.uibinder.client.UiField;
 import com.google.gwt.uibinder.client.UiHandler;
 import com.google.gwt.uibinder.client.UiTemplate;
-import com.google.gwt.user.client.Command;
-import com.google.gwt.user.client.DeferredCommand;
 import com.google.gwt.user.client.Window;
 import com.google.gwt.user.client.ui.CheckBox;
 import com.google.gwt.user.client.ui.Composite;
 import com.google.gwt.user.client.ui.ListBox;
 import com.google.gwt.user.client.ui.TextBox;
 import com.google.gwt.user.client.ui.Widget;
+
 import gwtquery.plugins.draggable.client.DraggableOptions.AxisOption;
 import gwtquery.plugins.draggable.client.DraggableOptions.CursorAt;
 import gwtquery.plugins.draggable.client.DraggableOptions.HelperType;
 import gwtquery.plugins.draggable.client.DraggableOptions.RevertOption;
-
-import java.util.HashMap;
-import java.util.Map;
 
 import static com.google.gwt.query.client.GQuery.$;
 
@@ -101,9 +101,9 @@ public class DraggableOptionsPanel extends Composite {
   public DraggableOptionsPanel(Element draggable) {
     this.draggable = draggable;
     initWidget(uiBinder.createAndBindUi(this));
-    // use a deferred command to ensure to init the object when the element is
-    // draggabel
-    DeferredCommand.addCommand(new Command() {
+
+    Scheduler.get().scheduleDeferred(new Scheduler.ScheduledCommand() {
+      @Override
       public void execute() {
         init();
       }
@@ -184,7 +184,7 @@ public class DraggableOptionsPanel extends Composite {
   @UiHandler(value = "helperListBox")
   public void onHelperChange(ChangeEvent e) {
     HelperType type = HelperType.valueOf(helperListBox.getValue(helperListBox
-        .getSelectedIndex()));
+            .getSelectedIndex()));
 
     if (type == HelperType.ELEMENT) {
       GQuery helper = $("<div class=\"myHelper\" style=\"width: 150px;height: 150px;\">I'm a custom helper</div>");
